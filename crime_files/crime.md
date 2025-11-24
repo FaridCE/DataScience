@@ -2,7 +2,7 @@
 layout: post  # or 'page', depending on your theme structure
 title: "Análisis de Patrones Delictivos con PCA"
 date: 2025-11-24 
-categories: [data-science, ineji]
+categories: [data-science, inegi]
 permalink: /analysis/pca-delitos/
 ---
 # ACP para encontrar patrones delictivos
