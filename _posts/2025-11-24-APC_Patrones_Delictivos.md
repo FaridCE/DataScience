@@ -332,7 +332,7 @@ plt.show()
 
 
     
-![png](crime_files/crime_21_0.png)
+![png](crime_21_0.png)
     
 
 
