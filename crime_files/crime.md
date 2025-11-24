@@ -1,3 +1,10 @@
+---
+layout: post  # or 'page', depending on your theme structure
+title: "Análisis de Patrones Delictivos con PCA"
+date: 2025-11-24 
+categories: [data-science, ineji]
+permalink: /analysis/pca-delitos/
+---
 # ACP para encontrar patrones delictivos
 ## Usando datos del INEGI
 Datos a analizar: Homicidio doloso, Robo de vehículo automotor, Lesiones dolosas, Extorsión; por Entidad.
