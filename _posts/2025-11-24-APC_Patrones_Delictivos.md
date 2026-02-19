@@ -332,7 +332,7 @@ plt.show()
 
 
     
-![png](crime_21_0.png)
+![png]({{ site.baseurl }}/assets/images/crime_21_0.png)
     
 
 
