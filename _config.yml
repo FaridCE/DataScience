@@ -25,7 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   A research blog exploring statistical methods, machine learning and data analysis in physics 
   and multi-disciplinary topics using simulations, and connections to observational data.
   Aimed at researchers and enthusiasts in the field.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/DataScience" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # author:
 #   name: "Your Name"
