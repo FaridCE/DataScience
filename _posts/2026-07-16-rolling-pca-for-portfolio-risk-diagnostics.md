@@ -103,7 +103,9 @@ These results suggest that the SRI captures structural market conditions associa
 To assess whether low-stress market regimes are associated with reduced forward realized volatility, we partition observations according to the empirical distribution of the Systemic Risk Index (SRI). Specifically, low-stress regimes are defined as observations belonging to the lowest 20% of the SRI distribution.
 
 We compute the difference
+
 $$ \Delta = \mathbb{E}\Big[\sigma_{t+H} |SRI \in \mathcal{L} \Big] - \mathbb{E}\Big[\sigma_{t+H} \Big] \, , $$
+
 where
 - $\mathcal{L}$ denotes the set of observations in the lowest SRI quintile,
 - $\sigma_{t+H}$ is forward realized volatility over horizon $H$,
@@ -124,8 +126,8 @@ For each bootstrap sample, we estimate
 - If CI contains 0 → effect not statistically distinguishable from noise
 
 The block bootstrap estimate yields:
-- Mean Δ = 0.0005
-- 95% CI = [-0.009  0.0105]
+- Mean $ \Delta = 0.0005 $
+- 95% CI = [-0.009, 0.0105]
 
 Although forward volatility is slightly lower during low-stress regimes, the bootstrap confidence interval includes zero. This suggests the effect is economically small and not statistically robust.
 
@@ -136,7 +138,9 @@ Future extensions could evaluate predictive content using longer samples and cro
 ### Volatility Scaling Strategy
 
 We test a simple risk-managed overlay
+
 $$ r^{scaled}(t)=w(t)r(t) \, ,$$
+
 where exposure is reduced during elevated systemic stress.
 
 Although low-stress regimes exhibit modestly lower forward volatility on average, bootstrap inference indicates that this effect is not statistically robust.
@@ -206,9 +210,11 @@ We find a modest negative relationship between variance concentration and residu
 
 As a baseline portfolio construction method, we generate 10,000 random long-only portfolios to approximate the classical Markowitz efficient frontier.
 For each portfolio,
+
 $$
 \mu_p = \mathbf{w}^T \boldsymbol{\mu}, \qquad \sigma_p = \sqrt{\mathbf{w}^T \Sigma \mathbf{w}}
 $$
+
 where $\boldsymbol{\mu}$ and $\Sigma$ are the full-sample mean returns and covariance matrix from the log-return series.
 
 This produces the characteristic “bullet” cloud of possible portfolios. The Monte Carlo simulation provides a reference set of feasible risk-return combinations and identifies both the global minimum-variance portfolio and the maximum Sharpe portfolio.
@@ -249,10 +255,8 @@ The optimizer allocates roughly 73% to NVIDIA, indicating that its higher expect
  
 The narrowness of the efficient frontier is consistent with the rolling PCA analysis presented earlier. The technology sector is characterized by a dominant first principal component (PC1), indicating that a substantial fraction of cross-sectional variance is driven by a common market factor.
 
-# Periods of elevated variance concentration,
-$$
-C(t) = \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, ,
-$$
+Periods of elevated variance concentration,
+$$ C(t) = \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, , $$
 correspond to a reduction in the effective dimensionality of the portfolio. As the first eigenmode explains an increasing share of total variance, the benefits of diversification diminish because individual stocks increasingly behave as exposures to the same underlying factor.
 
 This interpretation is further supported by the observed negative correlation between the variance concentration ratio and the residual dispersion,
