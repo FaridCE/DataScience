@@ -40,6 +40,17 @@ github_username:  FaridCE
 theme: minima
 plugins:
   - jekyll-feed
+  
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  math_engine: mathjax
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -60,20 +71,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-# -------------------------------------------------
-# Build settings
-# -------------------------------------------------
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  math_engine: mathjax
-  input: GFM
-  hard_wrap: false
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
-
 
 # -------------------------------------------------
 # Defaults – apply front‑matter to all posts
