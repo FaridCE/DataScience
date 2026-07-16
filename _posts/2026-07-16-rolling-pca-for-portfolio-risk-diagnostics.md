@@ -5,6 +5,7 @@ date: 2026-07-16
 categories: [quant-finance, portfolio-optimization, pca]
 tags: [PCA, Rolling PCA, Portfolio Optimization, Risk Management, Spectral Methods, Python]
 permalink: /quant/rolling-pca-sector-risk-diagnostics/
+mathjax: true
 ---
 
 # Dynamic Eigenmode Decomposition of the U.S. Tech Sector
