@@ -19,9 +19,9 @@ The U.S. technology sector is often characterized by strong co-movement among it
 To study this structure, we apply rolling Principal Component Analysis (PCA) to sector returns and monitor the evolution of its dominant eigenmode.
 
 We model asset returns as
-```math
+$$
 r_i(t)=\beta_i(t)\,f_1 \, , 
-```
+$$
 
 where 
 
@@ -36,7 +36,9 @@ The objective is not return prediction, but structural diagnosis and portfolio i
 ## Static Sector Structure
 Now we perform the principal component analysis by computing the covariance matrix $\Sigma$ and its spectral decomposition.
 To measure sector homogeneity, we define the variance concentration ratio
-$$$ C(t) := \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, .$$$
+$$ 
+C(t) := \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, .
+$$
 # Interpretation:
 
 High $C(t) \to$ sector behaves as one asset.
