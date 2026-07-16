@@ -20,11 +20,12 @@
 
 title: Data Science & Physics
 author: A. F. Cantun
-email: alejandrofarid0@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  A research blog exploring statistical methods, machine learning and data analysis in physics 
-  and multi-disciplinary topics using simulations, and connections to observational data.
-  Aimed at researchers and enthusiasts in the field.
+# email: alejandrofarid0@gmail.com
+description: >-
+  A research portfolio exploring quantitative finance, statistical learning,
+  portfolio optimization, risk modeling, and computational methods. Drawing on
+  techniques from physics, statistics, and machine learning to analyze complex
+  systems through data-driven models and simulations.
 baseurl: "/DataScience"
 url: "https://faridce.github.io" # the subpath of your site, e.g. /blog 
 # author:

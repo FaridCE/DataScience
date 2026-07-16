@@ -1,0 +1,53 @@
+---
+layout: page
+title: "Documentation"
+author: "A. F. Cantun"
+---
+
+### Documentation
+
+* **Resonant Non–Gaussianity from Non–Bunch–Davies Vacua.**
+<br>
+
+<button onclick="togglePreview('previewBtn1', 'pdfContainer1', 'pdfFrame1', '{{ '/assets/docs/not.pdf#view=FitH' | relative_url }}')" id="previewBtn1" style="background-color: #2ea44f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; margin: 10px 0;">
+  Show Preview
+</button>
+
+<div id="pdfContainer1" style="height: 0; opacity: 0; overflow: hidden; transition: opacity 0.3s ease;">
+  <iframe id="pdfFrame1" src="" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+</div>
+
+* **Classical and Semiclassical Probes of Dimension-Dependent Effective Geometries.** 
+<br>
+
+<button onclick="togglePreview('previewBtn2', 'pdfContainer2', 'pdfFrame2', '{{ '/assets/docs/EG.pdf#view=FitH' | relative_url }}')" id="previewBtn2" style="background-color: #2ea44f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; margin: 10px 0;">
+  Show Preview
+</button>
+
+<div id="pdfContainer2" style="height: 0; opacity: 0; overflow: hidden; transition: opacity 0.3s ease;">
+  <iframe id="pdfFrame2" src="" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+</div>
+
+<script>
+function togglePreview(btnId, containerId, frameId, pdfPath) {
+  var container = document.getElementById(containerId);
+  var frame = document.getElementById(frameId);
+  var btn = document.getElementById(btnId);
+  
+  if (container.style.height === "0px" || container.style.height === "") {
+    // Show it
+    frame.src = pdfPath; // Load PDF only when clicked
+    container.style.height = "610px";
+    container.style.opacity = "1";
+    btn.innerHTML = "Hide Preview";
+    btn.style.backgroundColor = "#d73a49";
+  } else {
+    // Hide it
+    container.style.height = "0px";
+    container.style.opacity = "0";
+    btn.innerHTML = "Show Preview";
+    btn.style.backgroundColor = "#2ea44f";
+    frame.src = ""; // Unload to save memory
+  }
+}
+</script>
