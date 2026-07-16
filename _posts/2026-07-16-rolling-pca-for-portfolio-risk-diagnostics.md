@@ -36,7 +36,7 @@ The objective is not return prediction, but structural diagnosis and portfolio i
 ## Static Sector Structure
 Now we perform the principal component analysis by computing the covariance matrix $\Sigma$ and its spectral decomposition.
 To measure sector homogeneity, we define the variance concentration ratio
-$$ C(t) := \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, .$$
+$$$ C(t) := \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, .$$$
 # Interpretation:
 
 High $C(t) \to$ sector behaves as one asset.
