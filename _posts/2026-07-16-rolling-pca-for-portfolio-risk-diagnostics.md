@@ -19,9 +19,9 @@ The U.S. technology sector is often characterized by strong co-movement among it
 To study this structure, we apply rolling Principal Component Analysis (PCA) to sector returns and monitor the evolution of its dominant eigenmode.
 
 We model asset returns as
-\\( 
+```math
 r_i(t)=\beta_i(t)\,f_1 \, , 
-\\)
+```
 
 where 
 
