@@ -278,3 +278,14 @@ Overall, the Monte Carlo efficient frontier provides a useful benchmark for clas
 The present analysis focuses on diagnosing the evolving covariance structure of the technology sector. A natural extension is to incorporate these structural diagnostics into dynamic risk estimation.
 
 Future work will investigate regime-conditioned Value-at-Risk (VaR) by replacing the static covariance matrix with the rolling covariance estimates obtained from the PCA decomposition. This would allow Monte Carlo risk simulations to adapt to changes in eigenvalue concentration and market structure, providing a framework for covariance-aware stress testing and dynamic portfolio risk management.
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
