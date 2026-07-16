@@ -22,7 +22,6 @@ We model asset returns as
 $$
 r_i(t)=\beta_i(t)\,f_1 \, , 
 $$
-
 where 
 
 $f_1(t)$ is the dominant systemic factor (first principal component),
@@ -36,9 +35,11 @@ The objective is not return prediction, but structural diagnosis and portfolio i
 ## Static Sector Structure
 Now we perform the principal component analysis by computing the covariance matrix $\Sigma$ and its spectral decomposition.
 To measure sector homogeneity, we define the variance concentration ratio
+
 $$ 
 C(t) := \dfrac{\lambda_1(t)}{Tr(\Sigma(t))} \, .
 $$
+
 # Interpretation:
 
 High $C(t) \to$ sector behaves as one asset.
@@ -82,7 +83,9 @@ Empirical findings suggest that while SRI effectively captures calm vs stressed 
 ### Forward Realized Volatility
 
 To evaluate whether SRI contains economically meaningful information, we compute forward realized volatility
-$$  \sigma_{t + H} = \sqrt{ \sum_{k=1}^{H}r_{t+k}^{2} } \, , $$
+$$
+\sigma_{t + H} = \sqrt{ \sum_{k=1}^{H}r_{t+k}^{2} } \, , 
+$$
 where $H$ is the forward horizon (e.g., 21 trading days).
 
 To distinguish different market conditions, we classify observations according to the empirical distribution of the SRI. Low-stress regimes are defined as observations belonging to the lowest 20% (lowest quintile) of the SRI distribution, representing periods characterized by relatively weak systemic correlation and stable covariance structure.
