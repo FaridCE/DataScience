@@ -19,9 +19,9 @@ The U.S. technology sector is often characterized by strong co-movement among it
 To study this structure, we apply rolling Principal Component Analysis (PCA) to sector returns and monitor the evolution of its dominant eigenmode.
 
 We model asset returns as
-$$
-r_i(t)=\beta_i(t)\,f_1 \, ,
-$$
+\\( 
+r_i(t)=\beta_i(t)\,f_1 \, , 
+\\)
 
 where 
 
@@ -56,7 +56,7 @@ We allow the covariance matrix to evolve over time using a rolling window.
 Even though we have calculated a tendency mode from the principal component, we cannot affirm that this tendency is stable unless we look at the stability of the eigenvector.
  
 # Interpretation:
-- \(S(t)≈1 \to \) stable correlation regime
+- $S(t)≈1 \to $ stable correlation regime
 - Sharp drops $\to$ structural reconfiguration of sector exposures
 
 This provides a regime-sensitive diagnostic of sector dynamics.
