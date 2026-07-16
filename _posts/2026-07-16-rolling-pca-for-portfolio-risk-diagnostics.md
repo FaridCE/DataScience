@@ -19,16 +19,15 @@ The U.S. technology sector is often characterized by strong co-movement among it
 To study this structure, we apply rolling Principal Component Analysis (PCA) to sector returns and monitor the evolution of its dominant eigenmode.
 
 We model asset returns as
+
 $$
 r_i(t)=\beta_i(t)\,f_1 \, , 
 $$
+
 where 
-
-$f_1(t)$ is the dominant systemic factor (first principal component),
-
-$\beta_i(t)$ is the time-varying exposure,
-
-$\epsilon_i(t)$ captures idiosyncratic return.
+- $f_1(t)$ is the dominant systemic factor (first principal component),
+- $\beta_i(t)$ is the time-varying exposure,
+- $\epsilon_i(t)$ captures idiosyncratic return.
 
 The objective is not return prediction, but structural diagnosis and portfolio interpretation
 
@@ -83,9 +82,9 @@ Empirical findings suggest that while SRI effectively captures calm vs stressed 
 ### Forward Realized Volatility
 
 To evaluate whether SRI contains economically meaningful information, we compute forward realized volatility
-$$
-\sigma_{t + H} = \sqrt{ \sum_{k=1}^{H}r_{t+k}^{2} } \, , 
-$$
+
+$$ \sigma_{t + H} = \sqrt{ \sum_{k=1}^{H}r_{t+k}^{2} } \, , $$
+
 where $H$ is the forward horizon (e.g., 21 trading days).
 
 To distinguish different market conditions, we classify observations according to the empirical distribution of the SRI. Low-stress regimes are defined as observations belonging to the lowest 20% (lowest quintile) of the SRI distribution, representing periods characterized by relatively weak systemic correlation and stable covariance structure.
