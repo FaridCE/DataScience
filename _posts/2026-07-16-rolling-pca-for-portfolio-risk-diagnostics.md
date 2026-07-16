@@ -227,6 +227,8 @@ Periods of elevated variance concentration $C(t)$ indicate that a single eigenmo
 
 Rather than replacing mean-variance optimization, the spectral diagnostics developed in this study provide complementary information about when the assumptions underlying the static covariance model become less reliable.
 
+![png]({{ site.baseurl }}/assets/images/annualized_frontier_with_concentration.png)
+
 # Interpretation of the Monte Carlo Efficient Frontier
 
 The scatter plot above shows the distribution of 10,000 randomly generated long-only portfolios (weights summing to one) constructed from the full-sample mean returns and covariance matrix of AAPL, NVDA, TSLA, and META.
