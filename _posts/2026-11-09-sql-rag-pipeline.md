@@ -23,7 +23,7 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
 {% raw %}
 <script>
-    const TUNNEL_URL = "https://excitement-aids-guru-holding.trycloudflare.com/api/chat";
+    const TUNNEL_URL = "https://defend-jack-opponents-declined.trycloudflare.com";
 
     async function sendPrompt() {
         const inputEl = document.getElementById("prompt-input");
