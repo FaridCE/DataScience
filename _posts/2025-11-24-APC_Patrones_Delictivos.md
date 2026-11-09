@@ -330,11 +330,7 @@ plt.axvline(0, color='grey', linestyle='--', alpha=0.5)
 plt.show()
 ```
 
-
-    
-![png]({{ site.baseurl }}/assets/images/crime_21_0.png)
-    
-
+![png]({{ site.baseurl }}/assets/images/crime_21_0.png)   
 
 ### Interpretación de la Visualización
 

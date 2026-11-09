@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From Rolling PCA to Sector Risk Diagnostics: A Spectral Approach to Portfolio Analysis"
+title: "A Spectral Approach to Portfolio Analysis"
 date: 2026-07-16
 categories: [quant-finance, portfolio-optimization, pca]
 tags: [PCA, Rolling PCA, Portfolio Optimization, Risk Management, Spectral Methods, Python]
@@ -10,7 +10,7 @@ mathjax: true
 
 # Dynamic Eigenmode Decomposition of the U.S. Tech Sector
 
-In this notebook we will study the Principal components of four stocks in the tech sector in order to provide a measure to controll the market exposure of our portfolio.
+In this [notebook](https://github.com/FaridCE/DataScience) we will study the Principal components of four stocks in the tech sector in order to provide a measure to controll the market exposure of our portfolio.
 
 ### Motivation
 
