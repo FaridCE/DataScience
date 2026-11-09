@@ -15,6 +15,9 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
     
     <div id="chat-box" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 16px; min-height: 200px; max-height: 450px; overflow-y: auto; font-family: monospace; font-size: 14px; white-space: pre-wrap; margin-bottom: 16px; color: #0f172a;">Escribe tu pregunta sobre legislación financiera o jurisprudencia SCJN...</div>
 
+    <!-- Contenedor dinámico para visor y descarga de PDF -->
+    <div id="pdf-action-area"></div>
+
     <div style="display: flex; gap: 8px;">
         <input type="text" id="prompt-input" placeholder="Ej. ¿Qué regulación aplica a las ITF?" style="flex: 1; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; outline: none;">
         <button id="submit-btn" onclick="sendPrompt()" style="padding: 10px 20px; background: #2563eb; color: #ffffff; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer;">Enviar</button>
@@ -23,7 +26,8 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
 {% raw %}
 <script>
-    const TUNNEL_URL = "https://defend-jack-opponents-declined.trycloudflare.com/api/chat";
+    // Solo debe ir el dominio base (sin /api/chat)
+    const TUNNEL_URL = "https://defend-jack-opponents-declined.trycloudflare.com";
 
     async function sendPrompt() {
         const inputEl = document.getElementById("prompt-input");
@@ -36,7 +40,7 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
         // Reset UI components
         box.innerText = "🔍 Buscando legislación y precedentes SCJN...\n\n";
-        pdfArea.innerHTML = "";
+        if (pdfArea) pdfArea.innerHTML = "";
         inputEl.value = "";
         btn.disabled = true;
 
@@ -94,6 +98,8 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
     function renderPdfControls(pdfUrl) {
         const pdfArea = document.getElementById("pdf-action-area");
+        if (!pdfArea) return;
+
         pdfArea.innerHTML = `
             <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 14px; margin-bottom: 12px;">
                 <div style="font-weight: 600; color: #0369a1; margin-bottom: 8px;">📄 Dictamen PDF Compilado Exitosamente</div>
@@ -114,13 +120,9 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
     function togglePdfViewer(pdfUrl) {
         const frame = document.getElementById("pdf-viewer-frame");
-        if (frame.style.display === "none") {
-            frame.style.display = "block";
-        } else {
-            frame.style.display = "none";
+        if (frame) {
+            frame.style.display = frame.style.display === "none" ? "block" : "none";
         }
     }
 </script>
 {% endraw %}
-
----
