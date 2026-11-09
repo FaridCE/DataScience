@@ -23,19 +23,20 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
 {% raw %}
 <script>
-    // Reemplaza con tu URL activa de Cloudflare Tunnel o Ngrok
-    const TUNNEL_URL = "https://excitement-aids-guru-holding.trycloudflare.com";
+    const TUNNEL_URL = "https://excitement-aids-guru-holding.trycloudflare.com/api/chat";
 
     async function sendPrompt() {
         const inputEl = document.getElementById("prompt-input");
         const box = document.getElementById("chat-box");
         const btn = document.getElementById("submit-btn");
+        const pdfArea = document.getElementById("pdf-action-area");
         const question = inputEl.value.trim();
 
         if (!question) return;
 
-        // UI state management
-        box.innerText = "Buscando vectores relevantes y generando respuesta en tiempo real...\n\n";
+        // Reset UI components
+        box.innerText = "🔍 Buscando legislación y precedentes SCJN...\n\n";
+        pdfArea.innerHTML = "";
         inputEl.value = "";
         btn.disabled = true;
 
@@ -47,7 +48,7 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
             });
 
             if (!response.ok) {
-                throw new Error(`HTTP Error status: ${response.status}`);
+                throw new Error(`HTTP Status: ${response.status}`);
             }
 
             const reader = response.body.getReader();
@@ -60,7 +61,7 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
 
                 buffer += decoder.decode(value, { stream: true });
                 const lines = buffer.split("\n\n");
-                buffer = lines.pop(); // Retener chunk incompleto en el buffer
+                buffer = lines.pop();
 
                 for (const line of lines) {
                     if (line.startsWith("data: ")) {
@@ -68,39 +69,58 @@ Esta publicación integra el cliente web ejecutable para conectar GitHub Pages c
                         if (dataStr === "[DONE]") break;
                         try {
                             const parsed = JSON.parse(dataStr);
-                            box.innerText += parsed.token;
-                            box.scrollTop = box.scrollHeight;
+
+                            // Append LLM tokens to chat window
+                            if (parsed.token) {
+                                box.innerText += parsed.token;
+                                box.scrollTop = box.scrollHeight;
+                            }
+
+                            // Triggered when PDF compilation completes on backend
+                            if (parsed.pdf_url) {
+                                const fullPdfUrl = `${TUNNEL_URL}${parsed.pdf_url}`;
+                                renderPdfControls(fullPdfUrl);
+                            }
                         } catch (e) {}
                     }
                 }
             }
         } catch (err) {
-            box.innerText += "\n\n[Error de conexión: Asegúrate de que el backend FastAPI local y el túnel HTTPS estén activos.]";
-            console.error("Error en streaming:", err);
+            box.innerText += `\n\n[Error de conexión: ${err.message}]`;
         } finally {
             btn.disabled = false;
         }
     }
 
-    // Permitir envío presionando la tecla Enter
-    document.addEventListener("DOMContentLoaded", () => {
-        const inputEl = document.getElementById("prompt-input");
-        if (inputEl) {
-            inputEl.addEventListener("keypress", (e) => {
-                if (e.key === "Enter") {
-                    sendPrompt();
-                }
-            });
+    function renderPdfControls(pdfUrl) {
+        const pdfArea = document.getElementById("pdf-action-area");
+        pdfArea.innerHTML = `
+            <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 14px; margin-bottom: 12px;">
+                <div style="font-weight: 600; color: #0369a1; margin-bottom: 8px;">📄 Dictamen PDF Compilado Exitosamente</div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="${pdfUrl}" target="_blank" download style="padding: 8px 16px; background: #0284c7; color: white; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">
+                        📥 Descargar PDF
+                    </a>
+                    <button onclick="togglePdfViewer('${pdfUrl}')" style="padding: 8px 16px; background: #334155; color: white; border: none; border-radius: 4px; font-weight: 600; font-size: 14px; cursor: pointer;">
+                        👁️ Ver PDF Integrado
+                    </button>
+                </div>
+                <div id="pdf-viewer-frame" style="display: none; margin-top: 14px;">
+                    <iframe src="${pdfUrl}" width="100%" height="550px" style="border: 1px solid #cbd5e1; border-radius: 6px;"></iframe>
+                </div>
+            </div>
+        `;
+    }
+
+    function togglePdfViewer(pdfUrl) {
+        const frame = document.getElementById("pdf-viewer-frame");
+        if (frame.style.display === "none") {
+            frame.style.display = "block";
+        } else {
+            frame.style.display = "none";
         }
-    });
+    }
 </script>
 {% endraw %}
 
 ---
-
-## Guía de Configuración Rápida
-
-1. **Backend FastAPI**: Asegúrate de que tu script `main.py` esté ejecutándose en `http://localhost:8000`.
-2. **Túnel HTTPS**: Abre una terminal y expón el puerto 8000 mediante Cloudflare Tunnel:
-   ```bash
-   cloudflared tunnel --url http://localhost:8000
